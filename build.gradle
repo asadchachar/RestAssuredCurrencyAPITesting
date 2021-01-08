@@ -1,0 +1,18 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+
+	implementation group: 'io.cucumber', name: 'cucumber-java', version: '6.7.0'
+	implementation group: 'io.cucumber', name: 'cucumber-picocontainer', version: '6.7.0'
+	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.2'
+	testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '4.3.0'
+	testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '6.7.0'
+    testImplementation 'junit:junit:4.12'
+    
+}

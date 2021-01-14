@@ -1,15 +1,11 @@
 package io.fixer.test.stepdef;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.notNullValue;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.hamcrest.Matcher;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -53,7 +49,7 @@ public class CrrencyStepDefinitions {
 		response = requestSpecification
 				.when()
 					.params("from", from, "to", to, "amount", amount)
-				.get("/convert");
+				.get(Config.RELATIVE_URL_GET);
 	}
 	
 	@And("Verify that the response after conversion is {string}")
@@ -88,7 +84,7 @@ public class CrrencyStepDefinitions {
 		response = requestSpecification
 			.given()
 			.body(payload)
-			.post("/convert/currency");
+			.post(Config.RELATIVE_URL_POST);
 
 	}
 
